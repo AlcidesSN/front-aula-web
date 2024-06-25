@@ -1,0 +1,31 @@
+<div>
+  <a routerLink="/receitas/criar" class="btn btn-primary m-2 text-white">Adicionar</a>
+</div>
+
+<div class="text-white shadow-p" style="width: 70rem;">
+  <ul class="row m-2">
+    <li *ngFor="let item of receitas" class="list-group-item bg-dark shadow-lg p-3 mb-3 rounded col-md-3" >
+      <p><strong>Paciente: </strong>{{item.paciente.name}}</p>
+      <p><strong>Medico: </strong>{{item.medico.nome}}</p>
+      <p><strong>Farmacia: </strong>{{item.farmacia.nome}}</p>
+      <div>
+        <strong>Medicamentos: </strong>
+        <p *ngFor="let medicamentos of item.medicamentos ">
+          {{medicamentos.nome}}
+        </p>
+      </div>
+      <p><strong>Data: </strong>{{item.data}}</p>
+      <div class="list-group">
+        <button [routerLink]="'/receitas/criar'"
+        [queryParams]="{
+        id:item.id_receita,
+        id_paciente:item.paciente.name,
+        id_medico:item.medico.nome,
+        id_farmacia:item.farmacia.nome,
+        }" class="btn btn-primary mb-2">Editar</button>
+        <button (click)="exluir(item)" class="btn btn-danger">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>
+

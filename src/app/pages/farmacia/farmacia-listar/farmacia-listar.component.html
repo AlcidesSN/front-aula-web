@@ -1,0 +1,24 @@
+<div>
+  <a routerLink="/farmacias/criar" class="btn btn-primary m-2 text-white">Adicionar</a>
+</div>
+
+<div class="text-white shadow-p">
+  <ul class="row m-2" style="width: 70rem;">
+    <li *ngFor="let item of farmacias" class="list-group-item bg-dark shadow-lg p-3 mb-3 rounded col-md-3" >
+      <p><strong>Nome da Farmacia </strong>{{item.nome}}</p>
+      <p><strong>CNPJ: </strong>{{item.cnpj}}</p>
+      <p><strong>Endereço: </strong>{{item.local}}</p>
+      <div class="list-group">
+        <button [routerLink]="'/farmacias/criar'"
+        [queryParams]="{
+        id:item.id_farmacia,
+        nome:item.nome,
+        cnpj:item.cnpj,
+        endereco:item.local
+        }" class="btn btn-primary mb-2">Editar</button>
+        <button (click)="exluir(item)" class="btn btn-danger">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>
+

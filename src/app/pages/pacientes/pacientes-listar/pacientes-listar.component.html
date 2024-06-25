@@ -1,0 +1,24 @@
+<div>
+  <a routerLink="/pacientes/criar" class="btn btn-primary m-2 text-white">Adicionar</a>
+</div>
+
+<div class="text-white shadow-p" style="width: 70rem;">
+  <ul class="row m-2">
+    <li *ngFor="let item of pacientes" class="list-group-item bg-dark shadow-lg p-3 mb-3 rounded col-md-3" >
+      <p><strong>Nome: </strong>{{item.name}}</p>
+      <p><strong>CPF: </strong>{{item.cpf}}</p>
+      <p><strong>Nacimento: </strong>{{item.birth.toString().replace("T00:00:00.000+00:00","")}}</p>
+      <div class="list-group">
+        <button [routerLink]="'/pacientes/criar'"
+        [queryParams]="{
+        id:item.id_paciente,
+        cpf:item.cpf,
+        name:item.name,
+        nacimento:item.birth,
+        }" class="btn btn-primary mb-2">Editar</button>
+        <button (click)="exluir(item)" class="btn btn-danger">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>
+

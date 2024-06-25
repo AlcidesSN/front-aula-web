@@ -1,0 +1,22 @@
+<div>
+  <a routerLink="/medicos/criar" class="btn btn-primary m-2 text-white">Adicionar</a>
+</div>
+<div class="text-white shadow-p" style="width: 70rem;">
+  <ul class="row m-2">
+    <li *ngFor="let item of medicos" class="list-group-item bg-dark shadow-lg p-3 mb-3 rounded col-md-3">
+      <p><strong>Nome: </strong>{{item.nome}}</p>
+      <p><strong>CRM: </strong>{{item.crm}}</p>
+      <p><strong>Assinatura: </strong>{{item.assinatura}}</p>
+      <div class="list-group">
+        <button [routerLink]="'/medicos/criar'"
+        [queryParams]="{
+        id:item.id_medico,
+        nome:item.nome,
+        crm:item.crm,
+        assinatura:item.assinatura,
+        }" class="btn btn-primary mb-2">Editar</button>
+        <button (click)="exluir(item)" class="btn btn-danger">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>

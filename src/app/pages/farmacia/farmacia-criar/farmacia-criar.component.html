@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" class="m-3">
+  <div class="row">
+    <div class="form-group col-md-10">
+      <label for="nome">Nome da Farmacia: </label>
+      <input type="text"  id="nome"class="form-control" [placeholder]="nome" formControlName="nome">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="Crm">CNPJ: </label>
+      <input type="text"  id="Crm"class="form-control" [placeholder]="cnpj" formControlName="cnpj">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="Senha">Senha: </label>
+      <input type="password"  id="Senha"class="form-control" formControlName="senha">
+    </div>
+    <div class="form-group col-md-10">
+      <label for="assinatura">Endereço: </label>
+      <input type="text"  id="assinatura"class="form-control" [placeholder]="endereco" formControlName="local">
+    </div>
+  </div>
+  <button *ngIf="id == 0" (click)="subumitForm()" class="btn btn-primary">Enviar</button>
+  <button *ngIf="id != 0" (click)="attForm()" class="btn btn-primary">Salvar</button>
+
+</form>

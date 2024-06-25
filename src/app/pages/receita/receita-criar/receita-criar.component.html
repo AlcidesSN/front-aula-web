@@ -1,0 +1,31 @@
+<form [formGroup]="userForm" class="m-3">
+    <div class="form-group">
+      <label for="paciente">Paciente: {{id_paciente}} </label>
+      <select id="pacientes"  class="selectpicker" formControlName="paciente">
+        <option *ngFor="let item of pacientes" [ngValue]="item">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="medico">Medico: {{id_medico}} </label>
+      <select class="selectpicker" formControlName="medico">
+        <option *ngFor="let item of medicos" [ngValue]="item">{{item.nome}}</option>
+      </select>
+    </div>
+    <div class="form-group" >
+      <label for="farmacia">Farmacia: {{id_farmacia}} </label>
+      <select class="selectpicker"  formControlName="farmacia">
+        <option  *ngFor="let item of farmacias" [ngValue]="item" >{{item.nome}}</option>
+      </select>
+    </div>
+    <div class="form-group" >
+      <label for="medicamentos">Medicamentos: </label>
+      <select class="selectpicker" formControlName="medicamentos" multiple="multiple">
+        <option *ngFor="let item of medicamentos" [ngValue]="item">{{item.nome}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="data">Data: </label>
+      <input type="date"  id="data" class="form-control" formControlName="data">
+    </div>
+    <button *ngIf="id == 0" (click)="subumitForm()" class="btn btn-primary">Enviar</button>
+    <button *ngIf="id != 0" (click)="attForm()" class="btn btn-primary">Salvar</button></form>
